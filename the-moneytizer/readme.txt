@@ -3,8 +3,8 @@ Contributors: The Moneytizer
 Tags: themoneytizer,themoneytizer,Advertising,ad,ads,Monetize,Adsense,adserver,banners,banner,Monetization,Woocommerce,Revenues,shortcode,Sidebar
 Requires at least: 3.3
 Requires PHP: 7.0
-Tested up to: 6.5.4
-Stable tag: 10.0.4
+Tested up to: 6.8.2
+Stable tag: 10.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -38,6 +38,9 @@ You can easily find your website ID. Go to the page: http://us.themoneytizer.com
 5. Moneybox Wordpress token
 
 == Changelog ==
+
+= 10.0.5 (30/09/2025)=
+* Minor improvements
 
 = 10.0.4 (03/09/2024)=
 * Minor improvements

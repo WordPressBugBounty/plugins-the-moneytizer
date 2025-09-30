@@ -3,7 +3,7 @@
 Plugin Name: The Moneytizer
 Plugin URI: http://www.themoneytizer.com/
 Description: Plugin of the ad network The Moneytizer that facilitates the integration of your ad tags
-Version: 10.0.4
+Version: 10.0.5
 Author: The Moneytizer
 Author URI: https://www.themoneytizer.com/
 License: GPL2

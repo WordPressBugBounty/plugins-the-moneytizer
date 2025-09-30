@@ -118,7 +118,7 @@ add_action('wp_ajax_update_data_lazy', 'themoneytizer_update_data_lazy');
 
 function add_classes_del($content){
     $doc = new DOMDocument();
-    @$doc->loadHTML('<?xml encoding="utf-8" ?>' .$content, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+    @$doc->loadHTML(mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8'), LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
     if(!is_single()){
         return $content;
     }

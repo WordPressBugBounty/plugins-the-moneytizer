@@ -52,7 +52,7 @@ if(!get_option('themoneytizer_setting_init')){
     #Setup
     update_option('themoneytizer_setting_init', true);
     update_option('themoneytizer_data_lazy', json_encode(array()));
-    update_option('themoneytizer_plugin_version', '10.0.4');
+    update_option('themoneytizer_plugin_version', '10.0.3');
     update_option('themoneytizer_user_language', 'en');
     update_option( 'themoneytizer_user_notifications', json_encode(array()));
     update_option( 'themoneytizer_data_statistics', json_encode(array()));
