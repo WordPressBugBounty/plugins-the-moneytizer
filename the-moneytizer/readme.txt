@@ -4,7 +4,7 @@ Tags: themoneytizer,themoneytizer,Advertising,ad,ads,Monetize,Adsense,adserver,b
 Requires at least: 3.3
 Requires PHP: 7.0
 Tested up to: 6.8.2
-Stable tag: 10.0.5
+Stable tag: 10.0.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -38,6 +38,10 @@ You can easily find your website ID. Go to the page: http://us.themoneytizer.com
 5. Moneybox Wordpress token
 
 == Changelog ==
+
+= 10.0.6 (1/10/2025)=
+* Fixed fatal error on post creation
+* Minor improvements
 
 = 10.0.5 (30/09/2025)=
 * Minor improvements

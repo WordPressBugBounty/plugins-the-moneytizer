@@ -117,6 +117,11 @@ add_action('wp_enqueue_scripts', 'add_lazy_loading');
 add_action('wp_ajax_update_data_lazy', 'themoneytizer_update_data_lazy');
 
 function add_classes_del($content){
+    // Return early if content is empty to prevent DOMDocument error
+    if (empty($content) || trim($content) === '') {
+        return $content;
+    }
+    
     $doc = new DOMDocument();
     @$doc->loadHTML(mb_convert_encoding($content, 'HTML-ENTITIES', 'UTF-8'), LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
     if(!is_single()){
