@@ -94,18 +94,19 @@ function themoneytizer_update_data_lazy(){
         $lazy_conf = [];
     }
 
-    $lazy_el['ad_id'] = $_POST['id'];
-    $lazy_el['order'] = $_POST['order'];
-    $lazy_el['anchor'] = $_POST['anchor'];
-    $lazy_el['status'] = $_POST['status'];
-    $lazy_el['frequency'] = $_POST['frequency'];
-    $lazy_el['tag'] = $_POST['tag'];
-    $lazy_el['height'] = $_POST['height'];
-    $lazy_el['width'] = $_POST['width'];
-    $lazy_el['align'] = $_POST['align'];
-    $lazy_el['start'] = $_POST['start'];
+    $lazy_el['ad_id'] = sanitize_text_field( wp_unslash( $_POST['id'] ?? '' ) );
+    $lazy_el['order'] = sanitize_text_field( wp_unslash( $_POST['order'] ?? 'before' ) );
+    $lazy_el['anchor'] = sanitize_text_field( wp_unslash( $_POST['anchor'] ?? 'p' ) );
+    $lazy_el['status'] = sanitize_text_field( wp_unslash( $_POST['status'] ?? 'false' ) );
+    $lazy_el['frequency'] = absint( $_POST['frequency'] ?? 1 );
+    $lazy_el['tag'] = wp_kses_post( wp_unslash( $_POST['tag'] ?? '' ) );
+    $lazy_el['height'] = sanitize_text_field( wp_unslash( $_POST['height'] ?? '' ) );
+    $lazy_el['width'] = sanitize_text_field( wp_unslash( $_POST['width'] ?? '' ) );
+    $lazy_el['align'] = sanitize_text_field( wp_unslash( $_POST['align'] ?? 'left' ) );
+    $lazy_el['start'] = absint( $_POST['start'] ?? 0 );
 
-    $lazy_conf[$_POST['id']] = $lazy_el;
+    $lazy_id = sanitize_text_field( wp_unslash( $_POST['id'] ?? '' ) );
+    $lazy_conf[ $lazy_id ] = $lazy_el;
     
     update_option('themoneytizer_data_lazy', json_encode($lazy_conf));
 

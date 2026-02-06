@@ -538,7 +538,7 @@ msgstr "Mise à jour paramètres"
 msgid "TRANSLATION_HOME_APPLYREMOTE_TITLE"
 msgstr ""
 "Vous êtes sur le point d'appliquer une mise à jour de la configuration du "
-"plugin wordpress TheMoneytizer, cela peut avoir pour effet de modifier les "
+"plugin wordpress The Moneytizer, cela peut avoir pour effet de modifier les "
 "paramètres suivants :"
 
 #: tab/tab_menu_home.php:72
@@ -560,7 +560,7 @@ msgstr "Appliquer"
 #: tab/tab_menu_home.php:99
 msgid "TRANSLATION_HOME_ADSTXT_REQUIRED"
 msgstr ""
-"Il est nécéssaire d'intégrer l'ads.txt TheMoneytizer pour commencer à "
+"Il est nécessaire d'intégrer l'ads.txt The Moneytizer pour commencer à "
 "monétiser votre site."
 
 #: tab/tab_menu_home.php:100
@@ -569,13 +569,11 @@ msgstr "Rendez-vous dans l'onglet"
 
 #: tab/tab_menu_home.php:102
 msgid "TRANSLATION_HOME_ADSTXT_REQUIRED_GOTO_LABEL"
-msgstr ""
-", section ads.txt pour intégrer automatiquement ou manuellement la dernière "
-"version de l'ads.txt."
+msgstr "Paramètres du plugin"
 
 #: tab/tab_menu_home.php:103
 msgid "TRANSLATION_HOME_ADSTXT_REQUIRED_GOTO_2"
-msgstr "paramètres du plugin"
+msgstr ", section ads.txt pour intégrer automatiquement ou manuellement la dernière version de l'ads.txt."
 
 #: tab/tab_menu_notifications.php:8
 msgid "Mes notifications"
@@ -763,13 +761,9 @@ msgstr "Paramètres"
 msgid "Version actuelle du plugin"
 msgstr "Version actuelle du plugin"
 
-#: tab/tab_menu_settings.php:83
-msgid ""
-"Vous pouvez reinitialiser le plugin si vous le souhaitez en cliquant sur le "
-"bouton ci-dessous :"
-msgstr ""
-"Vous pouvez reinitialiser le plugin si vous le souhaitez en cliquant sur le "
-"bouton ci-dessous :"
+#: tab/tab_menu_settings.php:153
+msgid "Vous pouvez réinitialiser le plugin si vous le souhaitez en cliquant sur le bouton ci-dessous :"
+msgstr "Vous pouvez réinitialiser le plugin si vous le souhaitez en cliquant sur le bouton ci-dessous :"
 
 #: tab/tab_menu_settings.php:86 tab/tab_menu_settings.php:92
 msgid "Réinitialisation du plugin"
@@ -867,11 +861,11 @@ msgstr "Shortcode et tags"
 
 #: tab/tab_signup.php:6
 msgid ""
-"Pour commencer à utiliser le plugin wordpress TheMoneytizer, commencez par "
+"Pour commencer à utiliser le plugin wordpress The Moneytizer, commencez par "
 "vous authentifier ou vous créer un compte en utilisant une des méthodes ci-"
 "dessous."
 msgstr ""
-"Pour commencer à utiliser le plugin wordpress TheMoneytizer, commencez par "
+"Pour commencer à utiliser le plugin wordpress The Moneytizer, commencez par "
 "vous authentifier ou vous créer un compte en utilisant une des méthodes ci-"
 "dessous."
 
@@ -895,13 +889,13 @@ msgstr "Où trouver mon identifiant ?"
 msgid ""
 "Votre identifiant est affiché sur la page dédiée à votre site de votre "
 "espace éditeur personnel. Pour y accéder, rendez-vous sur votre <a "
-"class=\"themoneytizer_link\" href=\"http://www.themoneytizer.com/manager/"
-"main\" target=\"_blank\">Moneybox</a>"
+"class=\"themoneytizer_link\" href=\"https://www.themoneytizer.com/new_manager/"
+"wordpress\" target=\"_blank\">Moneybox</a>"
 msgstr ""
 "Votre identifiant est affiché sur la page dédiée à votre site de votre "
 "espace éditeur personnel. Pour y accéder, rendez-vous sur votre <a "
-"class=\"themoneytizer_link\" href=\"http://www.themoneytizer.com/manager/"
-"main\" target=\"_blank\">Moneybox</a>"
+"class=\"themoneytizer_link\" href=\"https://www.themoneytizer.com/new_manager/"
+"wordpress\" target=\"_blank\">Moneybox</a>"
 
 #: tab/tab_signup.php:40
 msgid "Votre identifiant est une suite de lettres et chiffres par exemple."
@@ -1304,11 +1298,11 @@ msgstr ""
 
 #~ msgid ""
 #~ "Vous êtes sur le point d'appliquer une mise à jour de la configuration du "
-#~ "plugin wordpress TheMoneytizer, cela peut avoir pour effet de modifier "
+#~ "plugin wordpress The Moneytizer, cela peut avoir pour effet de modifier "
 #~ "les paramètres suivants :"
 #~ msgstr ""
 #~ "Vous êtes sur le point d'appliquer une mise à jour de la configuration du "
-#~ "plugin wordpress TheMoneytizer, cela peut avoir pour effet de modifier "
+#~ "plugin wordpress The Moneytizer, cela peut avoir pour effet de modifier "
 #~ "les paramètres suivants :"
 
 #~ msgid "Lazy loading actif"

@@ -1,7 +1,7 @@
 
 <tr id="el-intro-tag-off-<?php echo esc_html($format->ad_id); ?>" style="background: #ffebeb">
     <td class="td_medium table-multi-center">
-        <img src="<?php echo esc_html($format->path_format_img . $format->ad_img) ?>" alt="<?php echo $format->form_name ?>"/> <br>
+        <img src="<?php echo esc_url( $format->path_format_img . $format->ad_img ); ?>" alt="<?php echo esc_attr( $format->form_name ); ?>"/> <br>
         <?php echo esc_html(__($format->ad_name,'themoneytizer')); ?>
     </td>
     <?php if($format->ad_id == 20){
@@ -56,20 +56,20 @@
     <?php }else if($format->disabled != 'disabled'&&!in_array($format->ad_id, TAG_NO_LAZY_LOADING)){ ?>
         <td id="container_auto_<?php echo $format->ad_id ?>"></td>
         <td id="container_lazy_<?php echo $format->ad_id ?>">
-        <input type="text" hidden id="lazy_data_frequency_<?php echo $format->ad_id ?>"
-            value="<?php echo isset($data_lazy[$format->ad_id]->frequency) ?  $data_lazy[$format->ad_id]->frequency : 1 ?>"/>
-        <input type="text" hidden id="lazy_data_order_<?php echo $format->ad_id ?>"
-            value="<?php echo(isset($data_lazy[$format->ad_id]->order) ?  $data_lazy[$format->ad_id]->order : 'before') ?>"/>
-        <input type="text" hidden id="lazy_data_align_<?php echo $format->ad_id ?>"
-            value="<?php echo isset($data_lazy[$format->ad_id]->align) ?  $data_lazy[$format->ad_id]->align : 'left' ?>"/>
-        <input type="text" hidden id="lazy_data_width_<?php echo $format->ad_id ?>"
-            value="<?php echo isset($data_lazy[$format->ad_id]->width) ? $data_lazy[$format->ad_id]->width : $format->ad_size_width ?>"/>
-        <input type="text" hidden id="lazy_data_height_<?php echo $format->ad_id ?>"
-            value="<?php echo isset($data_lazy[$format->ad_id]->height) ? $data_lazy[$format->ad_id]->height : $format->ad_size_height ?>"/>
-        <input type="text" hidden id="lazy_data_anchor_<?php echo $format->ad_id ?>"
-            value="<?php echo isset($data_lazy[$format->ad_id]->anchor) ?  $data_lazy[$format->ad_id]->anchor : 'p' ?>"/>
-        <input type="text" hidden id="lazy_data_start_<?php echo $format->ad_id ?>"
-            value="<?php echo isset($data_lazy[$format->ad_id]->start) ?  $data_lazy[$format->ad_id]->start : 0 ?>"/>
+        <input type="text" hidden id="lazy_data_frequency_<?php echo esc_attr( $format->ad_id ); ?>"
+            value="<?php echo esc_attr( isset( $data_lazy[ $format->ad_id ]->frequency ) ? $data_lazy[ $format->ad_id ]->frequency : 1 ); ?>"/>
+        <input type="text" hidden id="lazy_data_order_<?php echo esc_attr( $format->ad_id ); ?>"
+            value="<?php echo esc_attr( isset( $data_lazy[ $format->ad_id ]->order ) ? $data_lazy[ $format->ad_id ]->order : 'before' ); ?>"/>
+        <input type="text" hidden id="lazy_data_align_<?php echo esc_attr( $format->ad_id ); ?>"
+            value="<?php echo esc_attr( isset( $data_lazy[ $format->ad_id ]->align ) ? $data_lazy[ $format->ad_id ]->align : 'left' ); ?>"/>
+        <input type="text" hidden id="lazy_data_width_<?php echo esc_attr( $format->ad_id ); ?>"
+            value="<?php echo esc_attr( isset( $data_lazy[ $format->ad_id ]->width ) ? $data_lazy[ $format->ad_id ]->width : $format->ad_size_width ); ?>"/>
+        <input type="text" hidden id="lazy_data_height_<?php echo esc_attr( $format->ad_id ); ?>"
+            value="<?php echo esc_attr( isset( $data_lazy[ $format->ad_id ]->height ) ? $data_lazy[ $format->ad_id ]->height : $format->ad_size_height ); ?>"/>
+        <input type="text" hidden id="lazy_data_anchor_<?php echo esc_attr( $format->ad_id ); ?>"
+            value="<?php echo esc_attr( isset( $data_lazy[ $format->ad_id ]->anchor ) ? $data_lazy[ $format->ad_id ]->anchor : 'p' ); ?>"/>
+        <input type="text" hidden id="lazy_data_start_<?php echo esc_attr( $format->ad_id ); ?>"
+            value="<?php echo esc_attr( isset( $data_lazy[ $format->ad_id ]->start ) ? $data_lazy[ $format->ad_id ]->start : 0 ); ?>"/>
         
             <div class="col-container">
                 <div class="row-container" style="justify-content: center"> 
@@ -80,8 +80,8 @@
                 </div>
                 <div class="themoneytizer_button center lazyloading"
                 onClick="lazySetup(
-                    <?php echo $format->ad_id ?>,
-                    '<?php echo $format->form_name ?>'
+                    <?php echo absint( $format->ad_id ); ?>,
+                    <?php echo wp_json_encode( $format->form_name ); ?>
                 )">
                     <?php echo esc_html(__('Configurer', 'themoneytizer')); ?>
                 </div>

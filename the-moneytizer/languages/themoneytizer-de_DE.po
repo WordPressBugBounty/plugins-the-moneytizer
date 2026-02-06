@@ -539,7 +539,7 @@ msgstr "Einstellungen aktualisieren"
 #: tab/tab_menu_home.php:70
 msgid "TRANSLATION_HOME_APPLYREMOTE_TITLE"
 msgstr ""
-"Sie sind dabei, ein Konfigurations-Update für das TheMoneytizer WordPress-"
+"Sie sind dabei, ein Konfigurations-Update für das The Moneytizer WordPress-"
 "Plugin durchzuführen. Dies kann dazu führen, dass die folgenden "
 "Einstellungen geändert werden:"
 
@@ -562,7 +562,7 @@ msgstr "Übernehmen"
 #: tab/tab_menu_home.php:98
 msgid "TRANSLATION_HOME_ADSTXT_REQUIRED"
 msgstr ""
-"Es ist notwendig, die TheMoneytizer ads.txt zu integrieren, um mit der "
+"Es ist notwendig, die The Moneytizer ads.txt zu integrieren, um mit der "
 "Monetarisierung Ihrer Website zu beginnen."
 
 #: tab/tab_menu_home.php:99
@@ -765,13 +765,9 @@ msgstr "Einstellungen "
 msgid "Version actuelle du plugin"
 msgstr "Aktuelle Version des Plugins"
 
-#: tab/tab_menu_settings.php:83
-msgid ""
-"Vous pouvez reinitialiser le plugin si vous le souhaitez en cliquant sur le "
-"bouton ci-dessous :"
-msgstr ""
-"Sie können das Plugin zurücksetzen, wenn Sie dies wünschen, klicken Sie auf "
-"die folgende Schaltfläche:"
+#: tab/tab_menu_settings.php:153
+msgid "Vous pouvez réinitialiser le plugin si vous le souhaitez en cliquant sur le bouton ci-dessous :"
+msgstr "Sie können das Plugin zurücksetzen, wenn Sie dies wünschen, indem Sie auf die Schaltfläche unten klicken:"
 
 #: tab/tab_menu_settings.php:86 tab/tab_menu_settings.php:92
 msgid "Réinitialisation du plugin"
@@ -811,7 +807,7 @@ msgid ""
 "compte du parrainé."
 msgstr ""
 "Um Ihre 15 € zu erhalten, muss der Geworbene mindestens 1 € Gutschrift durch "
-"TheMoneytizer-Anzeigen generiert haben. Provisionen werden nur einmal "
+"The Moneytizer-Anzeigen generiert haben. Provisionen werden nur einmal "
 "gutgeschrieben, unabhängig von der Anzahl der registrierten Websites auf dem "
 "geworbenen Konto."
 
@@ -869,11 +865,11 @@ msgstr "Shortcode & Tags"
 
 #: tab/tab_signup.php:6
 msgid ""
-"Pour commencer à utiliser le plugin wordpress TheMoneytizer, commencez par "
+"Pour commencer à utiliser le plugin wordpress The Moneytizer, commencez par "
 "vous authentifier ou vous créer un compte en utilisant une des méthodes ci-"
 "dessous."
 msgstr ""
-"Um das TheMoneytizer WordPress-Plugin zu verwenden, beginnen Sie damit, sich "
+"Um das The Moneytizer WordPress-Plugin zu verwenden, beginnen Sie damit, sich "
 "einzuloggen oder ein Konto mit einer der folgenden Methoden zu erstellen."
 
 #: tab/tab_signup.php:19
@@ -896,8 +892,7 @@ msgstr "Wo kann ich meine ID finden ?"
 msgid ""
 "Votre identifiant est affiché sur la page dédiée à votre site de votre "
 "espace éditeur personnel. Pour y accéder, rendez-vous sur votre <a "
-"class=\"themoneytizer_link\" href=\"http://www.themoneytizer.com/manager/"
-"main\" target=\"_blank\">Moneybox</a>"
+"class=\"themoneytizer_link\" href=\"https://www.themoneytizer.com/new_manager/wordpress\" target=\"_blank\">Moneybox</a>"
 msgstr ""
 "Ihr Login wird in dem Dashboard für Ihre Website in Ihrem persönlichen "
 "Portal angezeigt. Um darauf zuzugreifen, öffnen Sie Ihre <a "
@@ -1047,7 +1042,7 @@ msgid ""
 msgstr ""
 "<a href=\"#TB_inline?"
 "width=600&height=550&inlineId=themoneytizer_buttons_popup\" title=\"Add New "
-"Location The Moneytizer\" class=\"button thickbox\">Ein TheMoneytizer Format "
+"Location The Moneytizer\" class=\"button thickbox\">Ein The Moneytizer Format "
 "hinzufügen </a>"
 
 #: themoneytizer-shortcode.php:51
@@ -1295,10 +1290,10 @@ msgstr ""
 
 #~ msgid ""
 #~ "Vous êtes sur le point d'appliquer une mise à jour de la configuration du "
-#~ "plugin wordpress TheMoneytizer, cela peut avoir pour effet de modifier "
+#~ "plugin wordpress The Moneytizer, cela peut avoir pour effet de modifier "
 #~ "les paramètres suivants :"
 #~ msgstr ""
-#~ "Sie sind dabei, ein Konfigurations-Update für das TheMoneytizer WordPress-"
+#~ "Sie sind dabei, ein Konfigurations-Update für das The Moneytizer WordPress-"
 #~ "Plugin durchzuführen. Dies kann dazu führen, dass die folgenden "
 #~ "Einstellungen geändert werden:"
 

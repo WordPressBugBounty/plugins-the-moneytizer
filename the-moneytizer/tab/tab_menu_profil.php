@@ -15,7 +15,7 @@
                                 <label for="themoneytizer_user_name"><?php _e('Nom','themoneytizer');?><span class="option_required">*</span>:</label>
                             </td>
                             <td>
-                                <input style="width:215px;" type="text" name="themoneytizer_user_name" id="themoneytizer_user_name" value="<?php echo get_option('themoneytizer_user_name'); ?>" readonly>
+                                <input style="width:215px;" type="text" name="themoneytizer_user_name" id="themoneytizer_user_name" value="<?php echo esc_attr( get_option( 'themoneytizer_user_name' ) ); ?>" readonly>
                             </td>
                         </tr>
                         <tr>
@@ -23,7 +23,7 @@
                                 <label for="themoneytizer_user_firstname"><?php _e('Prénom','themoneytizer');?><span class="option_required">*</span>:</label>
                             </td>
                             <td>
-                                <input style="width:215px;" type="text" name="themoneytizer_user_firstname" id="themoneytizer_user_firstname" value="<?php echo get_option('themoneytizer_user_firstname'); ?>" readonly>
+                                <input style="width:215px;" type="text" name="themoneytizer_user_firstname" id="themoneytizer_user_firstname" value="<?php echo esc_attr( get_option( 'themoneytizer_user_firstname' ) ); ?>" readonly>
                             </td>
                         </tr>
                         <tr>
@@ -31,7 +31,7 @@
                                 <label for="themoneytizer_user_mail"><?php _e('Email','themoneytizer');?><span class="option_required">*</span>:</label>
                             </td>
                             <td>
-                                <input style="width:215px;" type="text" name="themoneytizer_user_mail" id="themoneytizer_user_mail" value="<?php echo get_option('themoneytizer_user_mail'); ?>" readonly>
+                                <input style="width:215px;" type="text" name="themoneytizer_user_mail" id="themoneytizer_user_mail" value="<?php echo esc_attr( get_option( 'themoneytizer_user_mail' ) ); ?>" readonly>
                             </td>
                         </tr>
                         <tr>
@@ -39,7 +39,7 @@
                                 <label for="themoneytizer_user_tel"><?php _e('Téléphone','themoneytizer');?><span class="option_required">*</span>:</label>
                             </td>
                             <td>
-                                <input style="width:215px;" type="text" name="themoneytizer_user_tel" id="themoneytizer_user_tel" value="<?php echo get_option('themoneytizer_user_tel'); ?>">
+                                <input style="width:215px;" type="text" name="themoneytizer_user_tel" id="themoneytizer_user_tel" value="<?php echo esc_attr( get_option( 'themoneytizer_user_tel' ) ); ?>">
                             </td>
                         </tr>
                         <tr>
@@ -47,7 +47,7 @@
                                 <label for="themoneytizer_user_address"><?php _e('Adresse','themoneytizer');?><span class="option_required">*</span>:</label>
                             </td>
                             <td>
-                                <input style="width:215px;" type="text" name="themoneytizer_user_address" id="themoneytizer_user_address" value="<?php echo get_option('themoneytizer_user_address'); ?>">
+                                <input style="width:215px;" type="text" name="themoneytizer_user_address" id="themoneytizer_user_address" value="<?php echo esc_attr( get_option( 'themoneytizer_user_address' ) ); ?>">
                             </td>
                         </tr>
                         <tr>
@@ -55,7 +55,7 @@
                                 <label for="themoneytizer_user_city"><?php _e('Ville','themoneytizer');?><span class="option_required">*</span>:</label>
                             </td>
                             <td>
-                                <input style="width:215px;" type="text" name="themoneytizer_user_city" id="themoneytizer_user_city" value="<?php echo get_option('themoneytizer_user_city'); ?>">
+                                <input style="width:215px;" type="text" name="themoneytizer_user_city" id="themoneytizer_user_city" value="<?php echo esc_attr( get_option( 'themoneytizer_user_city' ) ); ?>">
                             </td>
                         </tr>
                         <tr>
@@ -63,7 +63,7 @@
                                 <label for="themoneytizer_user_zip_code"><?php _e('Code postal','themoneytizer');?><span class="option_required">*</span>:</label>
                             </td>
                             <td>
-                                <input style="width:215px;" type="text" name="themoneytizer_user_zip_code" id="themoneytizer_user_zip_code" value="<?php echo get_option('themoneytizer_user_zip_code'); ?>">
+                                <input style="width:215px;" type="text" name="themoneytizer_user_zip_code" id="themoneytizer_user_zip_code" value="<?php echo esc_attr( get_option( 'themoneytizer_user_zip_code' ) ); ?>">
                             </td>
                         </tr>
                         <tr>
@@ -113,10 +113,10 @@
                             foreach ($list_structure as $key => $structure) { ?>
                             <tr style=>
                                 <td>
-                                    <label for="type_structure_<?php echo $key; ?>">&nbsp;&nbsp;&nbsp;<?php echo $structure['name']; ?></label>
+                                    <label for="type_structure_<?php echo esc_attr( $key ); ?>">&nbsp;&nbsp;&nbsp;<?php echo esc_html( $structure['name'] ); ?></label>
                                 </td>
                                 <td style="padding-left: 10px">
-                                    <input onClick="switchStructureType()" name="themoneytizer_user_type_structure" id="type_structure_<?php echo $key; ?>" type="radio" value="<?php echo $key; ?>" <?php echo ($type_structure == $key ? "checked" : ""); ?> />
+                                    <input onClick="switchStructureType()" name="themoneytizer_user_type_structure" id="type_structure_<?php echo esc_attr( $key ); ?>" type="radio" value="<?php echo esc_attr( $key ); ?>" <?php echo ( $type_structure === $key ? 'checked' : '' ); ?> />
                                 </td>
                             </tr>
                             <?php } ?>
@@ -127,7 +127,7 @@
                                 <label for="themoneytizer_user_entreprise">&nbsp;&nbsp;&nbsp;<?php _e("Nom de l'entreprise:",'themoneytizer');?></label>
                             </td>
                             <td>
-                                <input style="width:215px;" type="text" name="themoneytizer_user_entreprise" id="themoneytizer_user_entreprise" value="<?php echo get_option('themoneytizer_user_entreprise'); ?>" >
+                                <input style="width:215px;" type="text" name="themoneytizer_user_entreprise" id="themoneytizer_user_entreprise" value="<?php echo esc_attr( get_option( 'themoneytizer_user_entreprise' ) ); ?>" >
                             </td>
                         </tr>
                         <tr class="professionnel" id="siren_money_up">
@@ -135,7 +135,7 @@
                                 <label for="themoneytizer_user_user_siren">&nbsp;&nbsp;&nbsp;<?php _e('SIREN:','themoneytizer');?></label>
                             </td>
                             <td>
-                                <input style="width:215px;" type="text" name="themoneytizer_user_user_siren" id="themoneytizer_user_user_siren" value="<?php echo get_option('themoneytizer_user_user_siren'); ?>" >
+                                <input style="width:215px;" type="text" name="themoneytizer_user_user_siren" id="themoneytizer_user_user_siren" value="<?php echo esc_attr( get_option( 'themoneytizer_user_user_siren' ) ); ?>" >
                             </td>
                         </tr>
                         <tr id="tva_money_up" class="not-show" >
@@ -143,7 +143,7 @@
                                 <label for="themoneytizer_user_tva">&nbsp;&nbsp;&nbsp;<?php _e('N° de TVA intracommunautaire:','themoneytizer');?>&nbsp;</label>
                             </td>
                             <td>
-                                <input style="width:215px;" type="text" name="themoneytizer_user_tva" id="themoneytizer_user_tva" value="<?php echo get_option('themoneytizer_user_tva'); ?>" >
+                                <input style="width:215px;" type="text" name="themoneytizer_user_tva" id="themoneytizer_user_tva" value="<?php echo esc_attr( get_option( 'themoneytizer_user_tva' ) ); ?>" >
                             </td>
                         </tr>
                         <tr id="themoneytizer_denomination_social">
@@ -151,7 +151,7 @@
                                 <label for="themoneytizer_user_denomination_social">&nbsp;&nbsp;&nbsp;<?php _e('Dénomination sociale:','themoneytizer');?>&nbsp;</label>
                             </td>
                             <td>
-                                <input style="width:215px;" type="text" name="themoneytizer_user_denomination_social" id="themoneytizer_user_denomination_social" value="<?php echo get_option('themoneytizer_user_tva'); ?>" >
+                                <input style="width:215px;" type="text" name="themoneytizer_user_denomination_social" id="themoneytizer_user_denomination_social" value="<?php echo esc_attr( get_option( 'themoneytizer_user_tva' ) ); ?>" >
                             </td>
                         </tr>
                     </table>

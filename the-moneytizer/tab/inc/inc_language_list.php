@@ -1,4 +1,4 @@
-<select id="language_dropdown" value="<?= get_option('themoneytizer_data_language') ?>" onChange="saveLanguage()">
+<select id="language_dropdown" value="<?php echo esc_attr( get_option( 'themoneytizer_data_language' ) ); ?>" onChange="saveLanguage()">
     <option <?= get_option('themoneytizer_data_language') == "en" ? "selected" : "" ?> value="en">English</option>
     <option <?= get_option('themoneytizer_data_language') == "fr" ? "selected" : "" ?> value="fr">Français</option>
     <option <?= get_option('themoneytizer_data_language') == "it" ? "selected" : "" ?> value="it">Italiano</option>

@@ -29,7 +29,7 @@
                         }
                 ?>
                 <!--
-                <h5 class="themoneytizer_top_m_40"><?php echo esc_html(__('Filleuls','themoneytizer'));?>&nbsp;(<?php echo sizeof($sponsored) ?>)</h5>
+                <h5 class="themoneytizer_top_m_40"><?php echo esc_html(__('Filleuls','themoneytizer'));?>&nbsp;(<?php echo absint(sizeof($sponsored)); ?>)</h5>
                 <div class="themoneytizer_card">
                     <p class="themoneytizer_no_margin mid-size">
                         <?php
@@ -46,9 +46,9 @@
                         <?php }
                         foreach($sponsored as $site) { ?>
                             <div class="themoneytizer_flex_list_sponsored themoneytizer_card themoneytizer_bottom_m_20">
-                                <div><?php echo $site->site_url; ?></div>
+                                <div><?php echo esc_url($site->site_url); ?></div>
                                 <div><?php echo ($site->site_moderation == 2 ? '<i class="text-danger bi bi-x-circle"></i>' : '<i class="text-success bi bi-check-circle"></i>'); ?></div>
-                                <div><?php echo $site->parrainage_montant; ?></div>
+                                <div><?php echo esc_html($site->parrainage_montant); ?></div>
                             </div>
                         <?php
                         }

@@ -67,12 +67,12 @@ define("TAG_ONLY_ADCASH", array(24, 44));
 define("TAG_NO_LAZY_LOADING", array(3, 38, 4, 20, 16));
 
 // Const for current version
-define('THEMONEYTIZER_PLUGIN_VERSION', '10.0.3');
+define('THEMONEYTIZER_PLUGIN_VERSION', '10.0.8');
 update_option('themoneytizer_plugin_version', THEMONEYTIZER_PLUGIN_VERSION);
 
 // Determine which sub domain to use
 $themoneytizer_wp_lang = get_option('themoneytizer_user_language');
-$themoneytizer_sub_domain = array('fr' => 'www', 'en' => 'us', 'us' => 'us', 'es' => 'es', 'pt' => 'pt', 'de' => 'de', 'it' => 'it', 'pl' => 'pl', 'ru' => 'ru');
+$themoneytizer_sub_domain = array('fr' => 'www', 'en' => 'www', 'us' => 'www', 'es' => 'es', 'pt' => 'pt', 'de' => 'de', 'it' => 'it', 'pl' => 'pl', 'ru' => 'ru');
 if($themoneytizer_wp_lang != null && array_key_exists($themoneytizer_wp_lang, $themoneytizer_sub_domain)) {
     $themoneytizer_used_sub_domain = $themoneytizer_sub_domain[$themoneytizer_wp_lang];
 } else {

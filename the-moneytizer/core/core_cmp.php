@@ -438,8 +438,9 @@ function themoneytizer_get_cmp(){
     }
 
     $body = '';
-    $res = wp_remote_get('https://www.themoneytizer.com/cmp.php?lang='.$_POST['lang']);
-    if (is_array($res)) {
+    $lang = isset( $_POST['lang'] ) ? sanitize_text_field( wp_unslash( $_POST['lang'] ) ) : 'fr';
+    $res = wp_remote_get( 'https://www.themoneytizer.com/cmp.php?lang=' . rawurlencode( $lang ) );
+    if ( is_array( $res ) && isset( $res['body'] ) ) {
         $body = $res['body'];
     }
     echo $body;

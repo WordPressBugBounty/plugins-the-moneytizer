@@ -1,10 +1,10 @@
-﻿=== The Moneytizer ===
+=== The Moneytizer ===
 Contributors: The Moneytizer
 Tags: themoneytizer,themoneytizer,Advertising,ad,ads,Monetize,Adsense,adserver,banners,banner,Monetization,Woocommerce,Revenues,shortcode,Sidebar
 Requires at least: 3.3
 Requires PHP: 7.0
-Tested up to: 6.8.2
-Stable tag: 10.0.6
+Tested up to: 6.9
+Stable tag: 10.0.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -27,7 +27,7 @@ To be able to use the plugin, you need to have created a Moneytizer account befo
 
 = How do I get my site ID ?
 
-You can easily find your website ID. Go to the page: http://us.themoneytizer.com/manager/tag (You need to log in to your Moneytizer dashboard). Or by email if you subscribed directly throught the plugin (V2.0)
+You can easily find your website ID. Go to the page: https://us.themoneytizer.com/new_manager/wordpress (You need to log in to your Moneytizer dashboard). Or by email if you subscribed directly throught the plugin (V2.0)
 
 == Screenshots ==
 
@@ -38,6 +38,22 @@ You can easily find your website ID. Go to the page: http://us.themoneytizer.com
 5. Moneybox Wordpress token
 
 == Changelog ==
+
+= 10.0.8 (30/01/2025)=
+* Security: Complete XSS audit and fixes
+
+= 10.0.7 (22/01/2025)=
+* Security: Fixed Cross-Site Scripting (XSS) vulnerability (CVE-2025-62756)
+* Security: Added capability checks to prevent unauthorized modifications
+* Security: Added input sanitization for all user-submitted data
+* Security: Added output escaping for all displayed data in admin interface
+* UI/UX improvements
+* Fixed Moneybox links
+* Improved language selector functionality and styling
+* Fixed translation issues
+* Fixed spelling errors
+* Added and corrected translations for plugin reset message
+* Fixed text domain reloading issues for proper translation updates
 
 = 10.0.6 (1/10/2025)=
 * Fixed fatal error on post creation

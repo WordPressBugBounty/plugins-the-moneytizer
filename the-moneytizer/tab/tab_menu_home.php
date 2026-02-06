@@ -33,7 +33,7 @@
     
     $screeb('init', '9493ca40-deb7-4a26-9912-4e5ed40e43bf', {
     identity: {
-      id: <?php echo get_option('themoneytizer_user_id'); ?>,
+      id: <?php echo absint(get_option('themoneytizer_user_id')); ?>,
       // Set visitor properties
       properties: {}
     }
@@ -42,44 +42,41 @@
   </script>
   <!-- End of Screeb tag -->
   <div id="intro-informations" data-step></div>
-  <div class="row" style="margin-top:40px;margin-bottom:20px;">
-    <div class="col-4">
-      <h4><?php _e('Bienvenue sur votre MoneyBox','themoneytizer');?></h4>
-      <p><?php _e("Gérer vos formats publicitaires, vos informations...",'themoneytizer');?></p>
+  <div class="row" style="margin-top:40px;margin-bottom:40px;">
+    <div class="col-6">
+      <h4 style="color: #db0436; font-size: 2rem; margin-bottom: 20px;"><?php _e('Bienvenue sur votre MoneyBox','themoneytizer');?></h4>
+      <p style="font-size: 1.1rem; color: #333; margin-bottom: 15px;"><?php _e("Gérer vos formats publicitaires, vos informations...",'themoneytizer');?></p>
       <p class="mid-size">
         <?php _e('Url de votre site: ','themoneytizer'); ?>
-        <a class="themoneytizer_link" href="<?php echo get_option('themoneytizer_site_url'); ?>" target="_blank"/>
-          <?php echo get_option('themoneytizer_site_url'); ?>
+        <a class="themoneytizer_link" href="<?php echo esc_url(get_option('themoneytizer_site_url')); ?>" target="_blank"/>
+          <?php echo esc_html(get_option('themoneytizer_site_url')); ?>
         </a>
         <br/>
         <?php _e('Version CMP','themoneytizer'); ?>: 
         <?php if(get_option('themoneytizer_site_cmp')==-1){
           _e('sans','themoneytizer');
         } else {
-          echo get_option('themoneytizer_site_cmp');
+          echo esc_html(get_option('themoneytizer_site_cmp'));
         }?>
         <br/>
         <?php _e('Version ads.txt','themoneytizer'); ?>: 
         <?php if(get_option('themoneytizer_site_ads_txt')==-1){
           _e('sans','themoneytizer');
         } else {
-          echo get_option('themoneytizer_site_ads_txt');
+          echo esc_html(get_option('themoneytizer_site_ads_txt'));
         }?>
         <br/>
         <?php _e('TRANSLATION_HOME_PLUGIN_VERSION','themoneytizer'); ?>: 
         <?php echo THEMONEYTIZER_PLUGIN_VERSION ?>
         <br/>
-        <button id="el-intro-9" style="margin-top:20px;display: flex;justify-content:center;align-items:center" type="button" class="btn btn-primary themoneytizer_badge" onClick="driver.start();">
-          <?php _e('TRANSLATION_HOME_TUTORIAL','themoneytizer'); ?>
-        </button>
-        <p>
+        <div style="margin-top: 20px;">
           <?php include('inc/inc_language_list.php'); ?>
-        </p>
+        </div>
       </p>
       <?php $remote_update = (array)json_decode(get_option('themoneytizer_site_remote'));
         if(count($remote_update)>0){ ?>
           <button type="button" class="btn btn-primary themoneytizer_badge themoneytizer_pulse themoneytizer_helper" data-bs-toggle="modal" data-bs-target="#applyConf">
-              <?php _e('Changements en attente ', 'themoneytizer'); ?> <span style="color: #db0436; background: #fff!important" class="badge bg-secondary"><?php echo count($remote_update); ?></span>
+              <?php _e('Changements en attente ', 'themoneytizer'); ?> <span style="color: #db0436; background: #fff!important" class="badge bg-secondary"><?php echo absint(count($remote_update)); ?></span>
           </button>
           <div class="modal fade" id="applyConf" tabindex="-1" aria-labelledby="#applyConfLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -106,12 +103,12 @@
 
         <?php } ?>
     </div>
-    <div class="col-6" style="text-align:right;">
-      <div style="width:50%; margin-left: auto;">
-        <img style="width: 100%;" src="https://www.themoneytizer.com/global/img/logomoneytizer.png" alt="themoneytizer_logo"/><br/>
-        <p style="width: 100%; margin-top: 50px; text-align: center;">
-          <?php include('tab_menu_notifications.php'); ?>
-        </p>
+    <div class="col-6" style="text-align:right; display: flex; align-items: center; justify-content: flex-end; flex-direction: column;">
+      <div style="width:60%; margin-bottom: 20px;">
+        <img style="width: 100%; max-width: 300px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));" src="https://www.themoneytizer.com/global/img/logomoneytizer.png" alt="themoneytizer_logo"/>
+      </div>
+      <div style="width: 100%; text-align: center;">
+        <?php include('tab_menu_notifications.php'); ?>
       </div>
     </div>
   </div>

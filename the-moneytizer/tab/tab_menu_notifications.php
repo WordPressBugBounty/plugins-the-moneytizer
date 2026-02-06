@@ -17,9 +17,9 @@
             <div class="notif-container-themoney">
                 <div class="notif-head-themoney">
                     <div class="notif-title-themoney">
-                        <h4><?= $notification->swn_title?></h4>
+                        <h4><?php echo esc_html( $notification->swn_title ); ?></h4>
                     </div>
-                <p><?= $notification->swn_message?></p>
+                <p><?php echo esc_html( $notification->swn_message ); ?></p>
                 </div>
             </div>
             <?php }

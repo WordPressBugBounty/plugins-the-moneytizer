@@ -536,7 +536,7 @@ msgstr "Обновление настроек"
 #: tab/tab_menu_home.php:70
 msgid "TRANSLATION_HOME_APPLYREMOTE_TITLE"
 msgstr ""
-"Вы собираетесь применить обновление конфигурации плагина TheMoneytizer "
+"Вы собираетесь применить обновление конфигурации плагина The Moneytizer "
 "wordpress, в результате чего могут измениться следующие параметры:"
 
 #: tab/tab_menu_home.php:71
@@ -558,7 +558,7 @@ msgstr "Применить"
 #: tab/tab_menu_home.php:98
 msgid "TRANSLATION_HOME_ADSTXT_REQUIRED"
 msgstr ""
-"Необходимо интегрировать ads.txt TheMoneytizer, чтобы начать монетизацию "
+"Необходимо интегрировать ads.txt The Moneytizer, чтобы начать монетизацию "
 "вашего сайта."
 
 #: tab/tab_menu_home.php:99
@@ -761,12 +761,9 @@ msgstr "Настройки"
 msgid "Version actuelle du plugin"
 msgstr "Текущая версия плагина"
 
-#: tab/tab_menu_settings.php:83
-msgid ""
-"Vous pouvez reinitialiser le plugin si vous le souhaitez en cliquant sur le "
-"bouton ci-dessous :"
-msgstr ""
-"При желании вы можете сбросить настройки плагина, нажав на кнопку ниже:"
+#: tab/tab_menu_settings.php:153
+msgid "Vous pouvez réinitialiser le plugin si vous le souhaitez en cliquant sur le bouton ci-dessous :"
+msgstr "При желании вы можете сбросить настройки плагина, нажав на кнопку ниже:"
 
 #: tab/tab_menu_settings.php:86 tab/tab_menu_settings.php:92
 msgid "Réinitialisation du plugin"
@@ -863,11 +860,11 @@ msgstr "Шорткод и теги"
 
 #: tab/tab_signup.php:6
 msgid ""
-"Pour commencer à utiliser le plugin wordpress TheMoneytizer, commencez par "
+"Pour commencer à utiliser le plugin wordpress The Moneytizer, commencez par "
 "vous authentifier ou vous créer un compte en utilisant une des méthodes ci-"
 "dessous."
 msgstr ""
-"Чтобы начать работу с плагином TheMoneytizer Wordpress, начните с входа в "
+"Чтобы начать работу с плагином The Moneytizer Wordpress, начните с входа в "
 "систему или создания учетной записи одним из способов, описанных ниже."
 
 #: tab/tab_signup.php:19
@@ -890,12 +887,10 @@ msgstr "Где я могу найти свой ID?"
 msgid ""
 "Votre identifiant est affiché sur la page dédiée à votre site de votre "
 "espace éditeur personnel. Pour y accéder, rendez-vous sur votre <a "
-"class=\"themoneytizer_link\" href=\"http://www.themoneytizer.com/manager/"
-"main\" target=\"_blank\">Moneybox</a>"
+"class=\"themoneytizer_link\" href=\"https://www.themoneytizer.com/new_manager/wordpress\" target=\"_blank\">Moneybox</a>"
 msgstr ""
 "Ваш ID вы можете найти в вашем личном кабинете.Чтобы получить к нему доступ, "
-"зайдите в свой <a class=“themoneytizer_link” href=“http://www.themoneytizer."
-"com/manager/main” target=“_blank”>личный кабинет</a>"
+"зайдите в свой <a class=\"themoneytizer_link\" href=\"https://www.themoneytizer.com/new_manager/wordpress\" target=\"_blank\">личный кабинет</a>"
 
 #: tab/tab_signup.php:40
 msgid "Votre identifiant est une suite de lettres et chiffres par exemple."
@@ -1292,10 +1287,10 @@ msgstr ""
 
 #~ msgid ""
 #~ "Vous êtes sur le point d'appliquer une mise à jour de la configuration du "
-#~ "plugin wordpress TheMoneytizer, cela peut avoir pour effet de modifier "
+#~ "plugin wordpress The Moneytizer, cela peut avoir pour effet de modifier "
 #~ "les paramètres suivants :"
 #~ msgstr ""
-#~ "Вы собираетесь применить обновление конфигурации плагина TheMoneytizer "
+#~ "Вы собираетесь применить обновление конфигурации плагина The Moneytizer "
 #~ "wordpress, в результате чего могут измениться следующие параметры:"
 
 #~ msgid ""

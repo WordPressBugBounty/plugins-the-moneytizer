@@ -1,6 +1,6 @@
 <?php
 if(isset($_POST['themoneytizer_setting_token'])){
-    $token = $_POST['themoneytizer_setting_token'];
+    $token = sanitize_text_field( wp_unslash( $_POST['themoneytizer_setting_token'] ) );
 
     $body = ['version' => get_option('themoneytizer_plugin_version')];
     $url = "https://www.themoneytizer.com/plugin/tokenValidation?token=$token";

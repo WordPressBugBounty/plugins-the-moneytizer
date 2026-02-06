@@ -27,7 +27,7 @@ function themoneytizer_update_global_options(){
 }
 
 //Prevent call when admin is not on plugin
-if(isset($_GET['page'])&&$_GET['page']=='themoneytizer'){
+if( isset( $_GET['page'] ) && sanitize_text_field( wp_unslash( $_GET['page'] ) ) === 'themoneytizer' ){
     add_action('admin_menu', 'themoneytizer_update_global_options');
 }
 

@@ -170,7 +170,7 @@ function themoneytizer_frontend_footer() {
 /**
  * Prevent bootstrap and files conflict on other Backoffice pages
  */
-if(isset($_GET['page'])&&$_GET['page']=='themoneytizer'){
+if( isset( $_GET['page'] ) && sanitize_text_field( wp_unslash( $_GET['page'] ) ) === 'themoneytizer' ){
 	add_action('admin_enqueue_scripts', 'themoneytizer_load_js_css_files_admin');
 }
 

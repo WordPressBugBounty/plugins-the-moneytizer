@@ -15,7 +15,7 @@ class themoneytizer_space_widget extends WP_Widget {
 
         echo $args['before_widget'];
         echo $args['before_title'];
-        echo apply_filters('widget_title', $instance['title']);
+        echo esc_html( apply_filters( 'widget_title', $instance['title'] ) );
         echo $args['after_title'];
         echo $display;
         echo $args['after_widget'];
@@ -56,7 +56,7 @@ class themoneytizer_space_widget extends WP_Widget {
 ?>
       <p>
         <label for="<?php echo $this->get_field_name( 'title' ); ?>"><?php _e( 'Title:' ,'themoneytizer'); ?></label>
-        <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo  $title; ?>" />
+        <input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
         <br/><br/>
         <label for="<?php _e($this->get_field_name( 'ad_slot' ),'themoneytizer'); ?>"><?php _e( 'Choisissez l\'emplacement :' ,'themoneytizer'); ?></label>
         <select class="widefat" id="<?php echo $this->get_field_id( 'ad_slot' ); ?>" name="<?php _e( $this->get_field_name( 'ad_slot' ),'themoneytizer'); ?>">

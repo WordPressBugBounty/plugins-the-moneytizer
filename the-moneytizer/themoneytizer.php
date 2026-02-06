@@ -3,7 +3,7 @@
 Plugin Name: The Moneytizer
 Plugin URI: http://www.themoneytizer.com/
 Description: Plugin of the ad network The Moneytizer that facilitates the integration of your ad tags
-Version: 10.0.6
+Version: 10.0.8
 Author: The Moneytizer
 Author URI: https://www.themoneytizer.com/
 License: GPL2
@@ -72,6 +72,9 @@ function themoneytizer_loadLanguageFiles() {
 
     update_option('themoneytizer_user_local_lang', $locale);
 
+    // Unload existing text domain to force reload
+    unload_textdomain($domain);
+
     $mofile = $domain . '-' . $locale . '.mo';
 
     $plugin_rel_path = dirname( plugin_basename( __FILE__ ) ) . '/languages/';
@@ -105,6 +108,11 @@ function themoneytizer_output($setting) {
     if (trim($meta) == '') {
         return;
     }
+    
+    // Security: The real protection is at the save level (only admins can modify)
+    // For frontend output, we output the ad scripts as-is since they are legitimate
+    // and have been saved by administrators only (enforced in themoneytizer-api.php)
+    // Note: wp_kses would break legitimate ad scripts, so we rely on proper access control
     echo stripslashes($meta);
 }
 

@@ -106,19 +106,60 @@ function switchStructureType(){
 
 function saveLanguage() {
   let lang = jQuery_money('#language_dropdown').val();
+  if(!lang) {
+    return;
+  }
   var data = {
     action: 'update_language',
     _nonce: nonceSettings["update_language"],
     language: lang
   };
   jQuery.post(the_ajax_script.ajaxurl, data, function(response) {
-    var result = JSON.parse(response.substr(0, response.length-1));
-    if(result.status){
+    try {
+      var result;
+      // Handle different response types
+      if (typeof response === 'string') {
+        // Remove any trailing whitespace or newlines
+        response = response.trim();
+        result = JSON.parse(response);
+      } else if (typeof response === 'object') {
+        // Response is already an object (wp_send_json returns object directly)
+        result = response;
+      } else {
+        throw new Error('Unexpected response type');
+      }
+      
+      if(result && result.status){
+        Swal.fire({
+          icon: 'success',
+          title: 'Language updated',
+          timer: 2000,
+          showConfirmButton: false
+        });
+        setTimeout(function(){ 
+          window.location.reload(true); 
+        }, 1500);
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: result && result.message ? result.message : 'Failed to update language'
+        });
+      }
+    } catch(e) {
+      console.error('Error parsing response:', e, response);
       Swal.fire({
-        icon: 'success',
-        timer: 2000,
+        icon: 'error',
+        title: 'Error',
+        text: 'Failed to update language: ' + e.message
       });
-      setTimeout(function(){ document.location.reload(); }, 1500);
     }
+  }, 'json').fail(function(xhr, status, error) {
+    console.error('AJAX error:', status, error, xhr.responseText);
+    Swal.fire({
+      icon: 'error',
+      title: 'Error',
+      text: 'Failed to update language: ' + error
+    });
   });
 }

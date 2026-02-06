@@ -1,7 +1,7 @@
 <?php
     $themoneytizer_wp_lang = get_option('themoneytizer_user_language');
-    // array of language and sub-domain available for The Moneytizer website --> 'en' doesn't exist
-    $themoneytizer_sub_domain = array('fr' => 'www', 'en' => 'us', 'us' => 'us', 'es' => 'es', 'pt' => 'pt', 'de' => 'de', 'it' => 'it', 'pl' => 'pl', 'ru' => 'ru');
+    // array of language and sub-domain available for The Moneytizer website
+    $themoneytizer_sub_domain = array('fr' => 'www', 'en' => 'www', 'us' => 'www', 'es' => 'es', 'pt' => 'pt', 'de' => 'de', 'it' => 'it', 'pl' => 'pl', 'ru' => 'ru');
     if (array_key_exists($themoneytizer_wp_lang, $themoneytizer_sub_domain)) {
         $facture_url = "https://".$themoneytizer_sub_domain[$themoneytizer_wp_lang].".themoneytizer.com/manager/payment_method";
     } else {
@@ -24,7 +24,7 @@
                 <h5><?php _e('Factures','themoneytizer');?></h5>
                 <p class="themoneytizer_no_margin mid-size themoneytizer_card">
                     <?php _e('Vous pouvez consulter vos factures sur le lien suivant','themoneytizer');?>
-                    <a class="themoneytizer_link" href="<?php echo $facture_url; ?>" target="_blank"/><?php echo $facture_url; ?></a>
+                    <a class="themoneytizer_link" href="<?php echo esc_url($facture_url); ?>" target="_blank"/><?php echo esc_url($facture_url); ?></a>
                     <?php _e('ou directement ci-dessous.','themoneytizer'); ?>
                     <br/>
                     <i class="bi bi-info-circle"></i>&nbsp;<?php _e("Vos factures sont payées 60 jours après son émission.", 'themoneytizer'); ?>
@@ -64,10 +64,10 @@
                             <?php foreach($bills as $key) {
                                 $year = date("Y", strtotime($key->bill_date));
                                 $date = date("Y-m-d", strtotime($key->bill_date));?>
-                                <div onclick="showBill(<?php echo $key->bill_id; ?>)" class="themoneytizer_card d-flex bill-list">
-                                    <div><?php echo $date; ?></div>
-                                    <div><?php echo $year.'-'.str_pad($key->bill_id,6, "0", STR_PAD_LEFT);?></div>
-                                    <div><?php echo $key->bill_amount; ?>.<?php echo $key->bill_currency; ?></div>
+                                <div onclick="showBill(<?php echo absint($key->bill_id); ?>)" class="themoneytizer_card d-flex bill-list">
+                                    <div><?php echo esc_html($date); ?></div>
+                                    <div><?php echo esc_html($year.'-'.str_pad($key->bill_id,6, "0", STR_PAD_LEFT));?></div>
+                                    <div><?php echo esc_html($key->bill_amount); ?>.<?php echo esc_html($key->bill_currency); ?></div>
                                 </div>
                             <?php }
                         }
@@ -75,9 +75,9 @@
                         <h5><?php _e("Facturations exceptionnelles", 'themoneytizer'); ?></h5>
             
                         <?php foreach($billsExceptional as $key) { ?>
-                            <div onclick="showBill(<?php echo $key->bill_id; ?>)" class="themoneytizer_card d-flex bill-list">
-                                <div><?php echo $key->affichage_bill_date; ?></div>
-                                <div><?php echo $key->affichage_bill_amount; ?></div>
+                            <div onclick="showBill(<?php echo absint($key->bill_id); ?>)" class="themoneytizer_card d-flex bill-list">
+                                <div><?php echo esc_html($key->affichage_bill_date); ?></div>
+                                <div><?php echo esc_html($key->affichage_bill_amount); ?></div>
                             </div>
                         <?php }
                         } ?>

@@ -19,7 +19,7 @@ function themoneytizer_check_ads_txt() {
         'httpversion' => '1.0',
         'blocking' => true,
         'headers' => array(),
-        'body' => array("site_id" =>$_POST['siteId']),
+        'body' => array("site_id" => absint($_POST['siteId'])),
         'cookies' => array()
     ));
 
@@ -39,7 +39,7 @@ function themoneytizer_auto_ads_txt($internal_action = null) {
     }
     
     $response = new stdClass();
-    if ($_POST['value']=='auto'||$internal_action=='auto') {
+    if (sanitize_text_field($_POST['value'])=='auto'||$internal_action=='auto') {
         $site_id = get_option('themoneytizer_site_id');
         $user_id = get_option('themoneytizer_user_id');
         $response_ads_tm = wp_remote_get('https://www.themoneytizer.com/wp_ads_tm.php?site_id='.$site_id."&user_id=".$user_id);
@@ -119,7 +119,7 @@ function themoneytizer_get_bill_details() {
         return;
     }
 
-    $body = ['version' => get_option('themoneytizer_plugin_version'), 'local_lang' => get_locale(),'bill_id' => $_POST['bill_id']];
+    $body = ['version' => get_option('themoneytizer_plugin_version'), 'local_lang' => get_locale(),'bill_id' => absint($_POST['bill_id'])];
     $url = "https://www.themoneytizer.com/plugin/getGeneratedBill?token=$auth";
     $res = post_req($url, $body);
     if($generated_bill = json_decode($res)){
@@ -188,7 +188,7 @@ function themoneytizer_do_reactivate_tag(){
     }
 
     $auth = get_option('themoneytizer_setting_token');
-    $body = ['version' => get_option('themoneytizer_plugin_version'), 'tag_id' => $_POST['tagId']];
+    $body = ['version' => get_option('themoneytizer_plugin_version'), 'tag_id' => sanitize_text_field( wp_unslash( $_POST['tagId'] ?? '' ) )];
     $url = "https://www.themoneytizer.com/plugin/reactivateTag?token=$auth";
     $res = post_req($url, $body);
     $res = json_decode($res);
@@ -213,10 +213,19 @@ function themoneytizer_update_profile() {
     }
 
     $auth = get_option('themoneytizer_setting_token');
-    $body = ['version' => get_option('themoneytizer_plugin_version'),
-    "user_phone"=>$_POST["tel"], "user_adress"=>$_POST["adresse"], "user_city"=>$_POST["ville"], "user_zip"=>$_POST["cp"],
-    "user_country"=>$_POST["pays"], "user_type_structure" => $_POST["structure"],
-    "user_entreprise"=>$_POST["entreprise"], "user_siren"=>$_POST["siren"], "user_tva"=>$_POST["tva"], "user_denomination"=>$_POST["denomination"]];
+    $body = [
+        'version' => get_option('themoneytizer_plugin_version'),
+        'user_phone' => isset( $_POST['tel'] ) ? sanitize_text_field( wp_unslash( $_POST['tel'] ) ) : '',
+        'user_adress' => isset( $_POST['adresse'] ) ? sanitize_text_field( wp_unslash( $_POST['adresse'] ) ) : '',
+        'user_city' => isset( $_POST['ville'] ) ? sanitize_text_field( wp_unslash( $_POST['ville'] ) ) : '',
+        'user_zip' => isset( $_POST['cp'] ) ? sanitize_text_field( wp_unslash( $_POST['cp'] ) ) : '',
+        'user_country' => isset( $_POST['pays'] ) ? sanitize_text_field( wp_unslash( $_POST['pays'] ) ) : '',
+        'user_type_structure' => isset( $_POST['structure'] ) ? sanitize_text_field( wp_unslash( $_POST['structure'] ) ) : '',
+        'user_entreprise' => isset( $_POST['entreprise'] ) ? sanitize_text_field( wp_unslash( $_POST['entreprise'] ) ) : '',
+        'user_siren' => isset( $_POST['siren'] ) ? sanitize_text_field( wp_unslash( $_POST['siren'] ) ) : '',
+        'user_tva' => isset( $_POST['tva'] ) ? sanitize_text_field( wp_unslash( $_POST['tva'] ) ) : '',
+        'user_denomination' => isset( $_POST['denomination'] ) ? sanitize_text_field( wp_unslash( $_POST['denomination'] ) ) : '',
+    ];
     $url = "https://www.themoneytizer.com/plugin/updateUserProfile?token=$auth";
     $res = post_req($url, $body);
     $res = json_decode($res);
@@ -245,11 +254,11 @@ function themoneytizer_update_data_auto(){
         $auto_conf = [];
     }
 
-    $auto_el['ad_id'] = $_POST['adId'];
-    $auto_el['status'] = $_POST['status'];
-    $auto_el['tag'] = $_POST['tag'];
+    $auto_el['ad_id'] = sanitize_text_field($_POST['adId']);
+    $auto_el['status'] = sanitize_text_field($_POST['status']);
+    $auto_el['tag'] = wp_kses_post($_POST['tag']); // Allow HTML in tag but sanitize
 
-    $auto_conf[$_POST['adId']] = $auto_el;
+    $auto_conf[sanitize_text_field($_POST['adId'])] = $auto_el;
     update_option('themoneytizer_data_auto', json_encode($auto_conf));
 
     echo json_encode(array('status'=>true,'message'=> __('Configuration placement automatique enregistrée avec succès.', 'themoneytizer')));
@@ -268,7 +277,7 @@ function themoneytizer_put_format_on_pending() {
     }
 
     $auth = get_option('themoneytizer_setting_token');
-    $body = ['version' => get_option('themoneytizer_plugin_version'), 'ad_id' => $_POST['adId']];
+    $body = ['version' => get_option('themoneytizer_plugin_version'), 'ad_id' => absint( $_POST['adId'] ?? 0 )];
     $url = "https://www.themoneytizer.com/plugin/pendingTag?token=$auth";
     $res = post_req($url, $body);
     $res = json_decode($res);
@@ -293,7 +302,7 @@ function themoneytizer_do_generate_tag() {
     }
 
     $auth = get_option('themoneytizer_setting_token');
-    $body = ['version' => get_option('themoneytizer_plugin_version'), 'ad_id' => $_POST['adId']];
+    $body = ['version' => get_option('themoneytizer_plugin_version'), 'ad_id' => absint( $_POST['adId'] ?? 0 )];
     $url = "https://www.themoneytizer.com/plugin/generateTag?token=$auth";
     $res = post_req($url, $body);
     $res = (array)json_decode($res);
@@ -322,22 +331,22 @@ function themoneytizer_update_bank_data() {
     $auth = get_option('themoneytizer_setting_token');
     $body = [
         'version' => get_option('themoneytizer_plugin_version'),
-        'bank_name' => $_POST['bank_name'],
-        'bank_iban' => $_POST['bank_iban'],
-        'bank_bic' => $_POST['bank_bic'],
-        'bank_namebank' => $_POST['bank_namebank'],
-        'bank_addressbank' => $_POST['bank_addressbank'],
-        'bank_countrybank' => $_POST['bank_countrybank'],
-        'bank_citybank' => $_POST['bank_citybank'],
-        'bank_zipbank' => $_POST['bank_zipbank'],
-        'bank_inter_iban' => $_POST['bank_inter_iban'],
-        'bank_inter_bic' => $_POST['bank_inter_bic'],
-        'bank_inter_namebank' => $_POST['bank_inter_namebank'],
-        'bank_inter_addressbank' => $_POST['bank_inter_addressbank'],
-        'bank_inter_countrybank' => $_POST['bank_inter_countrybank'],
-        'bank_inter_citybank' => $_POST['bank_inter_citybank'],
-        'bank_inter_zipbank' => $_POST['bank_inter_zipbank'],
-        'paypal_email' => $_POST['paypal_email']
+        'bank_name' => isset( $_POST['bank_name'] ) ? sanitize_text_field( wp_unslash( $_POST['bank_name'] ) ) : '',
+        'bank_iban' => isset( $_POST['bank_iban'] ) ? sanitize_text_field( wp_unslash( $_POST['bank_iban'] ) ) : '',
+        'bank_bic' => isset( $_POST['bank_bic'] ) ? sanitize_text_field( wp_unslash( $_POST['bank_bic'] ) ) : '',
+        'bank_namebank' => isset( $_POST['bank_namebank'] ) ? sanitize_text_field( wp_unslash( $_POST['bank_namebank'] ) ) : '',
+        'bank_addressbank' => isset( $_POST['bank_addressbank'] ) ? sanitize_text_field( wp_unslash( $_POST['bank_addressbank'] ) ) : '',
+        'bank_countrybank' => isset( $_POST['bank_countrybank'] ) ? sanitize_text_field( wp_unslash( $_POST['bank_countrybank'] ) ) : '',
+        'bank_citybank' => isset( $_POST['bank_citybank'] ) ? sanitize_text_field( wp_unslash( $_POST['bank_citybank'] ) ) : '',
+        'bank_zipbank' => isset( $_POST['bank_zipbank'] ) ? sanitize_text_field( wp_unslash( $_POST['bank_zipbank'] ) ) : '',
+        'bank_inter_iban' => isset( $_POST['bank_inter_iban'] ) ? sanitize_text_field( wp_unslash( $_POST['bank_inter_iban'] ) ) : '',
+        'bank_inter_bic' => isset( $_POST['bank_inter_bic'] ) ? sanitize_text_field( wp_unslash( $_POST['bank_inter_bic'] ) ) : '',
+        'bank_inter_namebank' => isset( $_POST['bank_inter_namebank'] ) ? sanitize_text_field( wp_unslash( $_POST['bank_inter_namebank'] ) ) : '',
+        'bank_inter_addressbank' => isset( $_POST['bank_inter_addressbank'] ) ? sanitize_text_field( wp_unslash( $_POST['bank_inter_addressbank'] ) ) : '',
+        'bank_inter_countrybank' => isset( $_POST['bank_inter_countrybank'] ) ? sanitize_text_field( wp_unslash( $_POST['bank_inter_countrybank'] ) ) : '',
+        'bank_inter_citybank' => isset( $_POST['bank_inter_citybank'] ) ? sanitize_text_field( wp_unslash( $_POST['bank_inter_citybank'] ) ) : '',
+        'bank_inter_zipbank' => isset( $_POST['bank_inter_zipbank'] ) ? sanitize_text_field( wp_unslash( $_POST['bank_inter_zipbank'] ) ) : '',
+        'paypal_email' => isset( $_POST['paypal_email'] ) ? sanitize_email( wp_unslash( $_POST['paypal_email'] ) ) : '',
     ];
     $url = "https://www.themoneytizer.com/plugin/updateBankData?token=$auth";
     $res = post_req($url, $body);
@@ -456,24 +465,36 @@ function themoneytizer_apply_conf() {
 
 function themoneytizer_update_language() {
     if ( !wp_verify_nonce( sanitize_text_field(wp_unslash($_POST['_nonce'])), 'update_language') ) {
+        $response = array('status' => false, 'message' => 'Invalid nonce');
+        wp_send_json($response);
         return;
     }
 
     if(!current_user_can( 'manage_options' )){
-        return 0;
+        $response = array('status' => false, 'message' => 'Insufficient permissions');
+        wp_send_json($response);
+        return;
     }
 
     if(isset($_POST['language'])){
-        if(!in_array($_POST['language'], ["en", "fr", "it", "ru", "pt", "es", "de"])){
-            return 0;
+        $language = sanitize_text_field($_POST['language']);
+        if(!in_array($language, ["en", "fr", "it", "ru", "pt", "es", "de"])){
+            $response = array('status' => false, 'message' => 'Invalid language');
+            wp_send_json($response);
+            return;
         }
-        update_option('themoneytizer_data_language', $_POST['language']);
-        $response = array('status' => true);
-        echo json_encode($response);
+        update_option('themoneytizer_data_language', $language);
+        
+        // Force reload of text domain
+        $domain = 'themoneytizer';
+        unload_textdomain($domain);
+        
+        $response = array('status' => true, 'message' => 'Language updated successfully');
+        wp_send_json($response);
         return;
     }
-    $response = array('status' => false);
-    echo json_encode($response);
+    $response = array('status' => false, 'message' => 'No language provided');
+    wp_send_json($response);
 }
 
 add_action('wp_ajax_auto_ads_txt', 'themoneytizer_auto_ads_txt');
