@@ -67,7 +67,7 @@ define("TAG_ONLY_ADCASH", array(24, 44));
 define("TAG_NO_LAZY_LOADING", array(3, 38, 4, 20, 16));
 
 // Const for current version
-define('THEMONEYTIZER_PLUGIN_VERSION', '10.0.8');
+define('THEMONEYTIZER_PLUGIN_VERSION', '10.0.9');
 update_option('themoneytizer_plugin_version', THEMONEYTIZER_PLUGIN_VERSION);
 
 // Determine which sub domain to use

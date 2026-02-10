@@ -145,7 +145,7 @@
                             <p class="mid-size" style="margin: 0; line-height: 1.8;">
                                 <i class="bi bi-info-circle" style="color: #6c757d; margin-right: 0.5rem;"></i>
                                 <strong><?php _e('Version actuelle du plugin','themoneytizer');?>:</strong> 
-                                <span style="color: #db0436; font-weight: 600;"><?php echo esc_html( defined( 'THEMONEYTIZER_PLUGIN_VERSION' ) ? THEMONEYTIZER_PLUGIN_VERSION : get_option( 'themoneytizer_plugin_version', '10.0.8' ) ); ?></span>
+                                <span style="color: #db0436; font-weight: 600;"><?php echo esc_html( defined( 'THEMONEYTIZER_PLUGIN_VERSION' ) ? THEMONEYTIZER_PLUGIN_VERSION : get_option( 'themoneytizer_plugin_version', '10.0.9' ) ); ?></span>
                             </p>
                         </div>
                         <div style="padding-top: 1rem; border-top: 1px solid #e9ecef;">

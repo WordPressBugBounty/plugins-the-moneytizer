@@ -97,7 +97,7 @@
                 <div class="themoneytizer_button center lazyloading"
                 onClick="lazySetup(
                     <?php echo absint( $format->ad_id ); ?>,
-                    <?php echo wp_json_encode( $format->form_name ); ?>
+                    '<?php echo esc_js( $format->form_name ); ?>'
                 )">
                     <?php esc_html_e( 'Configurer', 'themoneytizer' ); ?>
                 </div>
