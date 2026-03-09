@@ -1,7 +1,7 @@
 <?php
 
 add_action( 'wp_enqueue_scripts', 'add_thickbox' );
-//add_shortcode('themoneytizer', 'themoneytizer_shortcode');
+add_shortcode( 'themoneytizer', 'themoneytizer_shortcode' );
 add_action('wp_enqueue_scripts', 'themoneytizer_rc_asc_replace_shortcode');
 add_action('media_buttons', 'themoneytizer_media_buttons', 15);
 add_action('admin_footer', 'themoneytizer_media_buttons_popup');
@@ -29,11 +29,18 @@ function themoneytizer_rc_asc_replace_shortcode() {
 }
 
 function themoneytizer_shortcode( $atts ) {
-    
-    $api = new themoneytizer_API();
-    $display = $api->getSpace($atts['id']);
+    $atts = shortcode_atts( array(
+        'id' => '',
+    ), $atts, 'themoneytizer' );
 
-	return $display;
+    $id = sanitize_text_field( $atts['id'] );
+
+    if ( ! preg_match( '/^\d+-\d+$/', $id ) ) {
+        return '';
+    }
+
+    $api = new themoneytizer_API();
+    return $api->getSpace( $id );
 }
 
 function themoneytizer_media_buttons($context) {
@@ -59,10 +66,10 @@ function themoneytizer_media_buttons_popup() {
             foreach ($spaces as $space) {
                 if($space->tag_type == 0 && $space->tag_name == $space->form_name){
 		
-					$token = $website->site_id.'-'.$space->ad_id;
-					echo '<option data-token="'.$token.'" value="'.$token.'"><b>';
-					_e($space->tag_name,'themoneytizer');
-					echo'</b></option>';
+				$token = intval($website->site_id).'-'.intval($space->ad_id);
+				echo '<option data-token="'.esc_attr($token).'" value="'.esc_attr($token).'"><b>';
+				echo esc_html__($space->tag_name,'themoneytizer');
+				echo'</b></option>';
                 }
             }
         }

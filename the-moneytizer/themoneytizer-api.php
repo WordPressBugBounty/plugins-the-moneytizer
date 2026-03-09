@@ -21,19 +21,24 @@ class themoneytizer_API {
 	}
 
 	public function getSpace($token,$decode = true) {
+		$response = '';
 		if($token != NULL) {
 			$token_split = explode("-", $token);
-			$site_id = $token_split[0];
-			$ad_id = $token_split[1];
+			if ( count($token_split) < 2 ) {
+				return '';
+			}
+			$site_id = intval($token_split[0]);
+			$ad_id   = intval($token_split[1]);
+			$safe_token = $site_id . '-' . $ad_id;
 
 			if($ad_id == 16){
-				$response = '<div  class="outbrain-tm" id="'.$token.'"><script src="//ads.themoneytizer.com/s/gen.js"></script><script src="//ads.themoneytizer.com/s/requestform.js?siteId='.$site_id.'&formatId='.$ad_id.'" ></script></div>';
+				$response = '<div  class="outbrain-tm" id="'.esc_attr($safe_token).'"><script src="//ads.themoneytizer.com/s/gen.js"></script><script src="//ads.themoneytizer.com/s/requestform.js?siteId='.$site_id.'&formatId='.$ad_id.'" ></script></div>';
 			}
 			elseif($ad_id == 25){
-				$response = '<div class="adyoulike-tm" id="'.$token.'"><script src="//ads.themoneytizer.com/s/gen.js"></script><script src="//ads.themoneytizer.com/s/requestform.js?siteId='.$site_id.'&formatId='.$ad_id.'" ></script></div>';
+				$response = '<div class="adyoulike-tm" id="'.esc_attr($safe_token).'"><script src="//ads.themoneytizer.com/s/gen.js"></script><script src="//ads.themoneytizer.com/s/requestform.js?siteId='.$site_id.'&formatId='.$ad_id.'" ></script></div>';
 			}
 			else{
-				$response = '<div id="'.$token.'"><script src="//ads.themoneytizer.com/s/gen.js"></script><script src="//ads.themoneytizer.com/s/requestform.js?siteId='.$site_id.'&formatId='.$ad_id.'" ></script></div>';
+				$response = '<div id="'.esc_attr($safe_token).'"><script src="//ads.themoneytizer.com/s/gen.js"></script><script src="//ads.themoneytizer.com/s/requestform.js?siteId='.$site_id.'&formatId='.$ad_id.'" ></script></div>';
 			}
 		}
 		return $response;

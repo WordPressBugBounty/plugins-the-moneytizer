@@ -69,16 +69,19 @@ class themoneytizer_space_widget extends WP_Widget {
                 $ad_slot = explode('-',$ad_slot);
                 $site_id = $ad_slot[0];
                 $ad_id = $ad_slot[1];
+                $safe_site_id = intval($site_id);
+                $safe_ad_id = intval($ad_id);
+                $safe_token = $safe_site_id . '-' . $safe_ad_id;
                 if(get_locale() == "fr_FR"){
-                  echo '<option selected data-token="'.$site_id."-".$ad_id.'" value="'.$site_id."-".$ad_id.'"><b>'.$array_formats[$ad_id].'</b></option>';
+                  echo '<option selected data-token="'.esc_attr($safe_token).'" value="'.esc_attr($safe_token).'"><b>'.esc_html($array_formats[$safe_ad_id]).'</b></option>';
                 }else{
-                  echo '<option selected data-token="'.$site_id."-".$ad_id.'" value="'.$site_id."-".$ad_id.'"><b>'.$array_formats_en[$ad_id].'</b></option>';
+                  echo '<option selected data-token="'.esc_attr($safe_token).'" value="'.esc_attr($safe_token).'"><b>'.esc_html($array_formats_en[$safe_ad_id]).'</b></option>';
                 }
               }
               foreach ($spaces as $space) {
                 if($space->tag_type == 0 && $space->tag_name == $space->form_name){
-                  $token = $website->site_id.'-'.$space->ad_id;
-                    echo '<option data-token="'.$token.'" value="'.$token.'"><b>';							_e($space->tag_name,'themoneytizer');							echo '</b></option>';
+                  $token = intval($website->site_id).'-'.intval($space->ad_id);
+                    echo '<option data-token="'.esc_attr($token).'" value="'.esc_attr($token).'"><b>';							echo esc_html__($space->tag_name,'themoneytizer');							echo '</b></option>';
                 }
               }
             }
